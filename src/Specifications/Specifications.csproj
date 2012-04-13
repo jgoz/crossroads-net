@@ -100,6 +100,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Shared\ProductInfo.cs">
+      <Link>Properties\ProductInfo.cs</Link>
+    </Compile>
     <Compile Include="Behaviors.cs" />
     <Compile Include="DeviceSpecs\Forwarder.cs" />
     <Compile Include="DeviceSpecs\Queue.cs" />
