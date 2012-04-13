@@ -42,6 +42,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perf.ThrLocal", "Perf.ThrLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perf.ThrRemote", "Perf.ThrRemote\Perf.ThrRemote.csproj", "{8FAE7F57-03DE-4055-AB25-683335E390BF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F4F34343-AA86-439A-BB6C-DC139231CF9E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\crossroads-net.nuspec = .nuget\crossroads-net.nuspec
+		.nuget\libxs.nuspec = .nuget\libxs.nuspec
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>crossroads-net</id>
+    <version>0.0.0</version>
+    <authors>crossroads-io</authors>
+    <owners>John Gozde</owners>
+    <copyright>Copyright © 2012 John Gozde and Contributors</copyright>
+    <projectUrl>https://github.com/jgoz/crossroads-net</projectUrl>
+    <licenseUrl>http://www.crossroads.io/dev:legal</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>.NET bindings for Crossroads I/O</summary>
+    <description>The crossroads-net project contains .NET bindings for Crossroads I/O, an open source, high performance transport layer. Targets Any CPU and includes compiled versions of the native libxs library for x86 and x64.</description>
+    <language>en-US</language>
+    <tags>crossroads crossroads-io xs libxs zeromq zmq 0mq messaging transport distributed</tags>
+  </metadata>
+  <files>
+    <file src="publish\CrossroadsIO*.dll" target="lib\net40" />
+    <file src="publish\*.pdb" target="lib\net40" />
+    <file src="publish\*.xml" target="lib\net40" />
+    <file src="src\libxs-version.txt"/>
+    <file src="LICENSE"/>
+  </files>
+</package>
