@@ -40,6 +40,7 @@ namespace CrossroadsIO.Interop
             xs_init = NativeLib.GetUnmanagedFunction<XsInitProc>("xs_init");
             xs_term = NativeLib.GetUnmanagedFunction<XsTermProc>("xs_term");
             xs_close = NativeLib.GetUnmanagedFunction<XsCloseProc>("xs_close");
+            xs_setctxopt = NativeLib.GetUnmanagedFunction<XsSetCtxOptProc>("xs_setctxopt");
             xs_setsockopt = NativeLib.GetUnmanagedFunction<XsSetSockOptProc>("xs_setsockopt");
             xs_getsockopt = NativeLib.GetUnmanagedFunction<XsGetSockOptProc>("xs_getsockopt");
             xs_bind = NativeLib.GetUnmanagedFunction<XsBindProc>("xs_bind");

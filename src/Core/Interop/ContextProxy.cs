@@ -32,7 +32,7 @@
             {
                 Marshal.WriteInt32(optionValue, value);
 
-                return LibXs.xs_setsockopt(ContextHandle, option, optionValue, sizeof(int));
+                return LibXs.xs_setctxopt(ContextHandle, option, optionValue, sizeof(int));
             }
         }
 

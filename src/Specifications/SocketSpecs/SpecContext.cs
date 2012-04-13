@@ -8,19 +8,19 @@
     abstract class using_req
     {
         protected static Socket socket;
-        protected static Context zmqContext;
+        protected static Context ctx;
         protected static Exception exception;
 
         Establish context = () =>
         {
-            zmqContext = Context.Create();
-            socket = zmqContext.CreateSocket(SocketType.REQ);
+            ctx = Context.Create();
+            socket = ctx.CreateSocket(SocketType.REQ);
         };
 
         Cleanup resources = () =>
         {
             socket.Dispose();
-            zmqContext.Dispose();
+            ctx.Dispose();
         };
     }
 
@@ -28,21 +28,21 @@
     {
         protected static Socket req;
         protected static Socket rep;
-        protected static Context zmqContext;
+        protected static Context ctx;
         protected static Exception exception;
 
         Establish context = () =>
         {
-            zmqContext = Context.Create();
-            req = zmqContext.CreateSocket(SocketType.REQ);
-            rep = zmqContext.CreateSocket(SocketType.REP);
+            ctx = Context.Create();
+            req = ctx.CreateSocket(SocketType.REQ);
+            rep = ctx.CreateSocket(SocketType.REP);
         };
 
         Cleanup resources = () =>
         {
             req.Dispose();
             rep.Dispose();
-            zmqContext.Dispose();
+            ctx.Dispose();
         };
     }
 
@@ -50,21 +50,21 @@
     {
         protected static Socket pub;
         protected static Socket sub;
-        protected static Context zmqContext;
+        protected static Context ctx;
         protected static Exception exception;
 
         Establish context = () =>
         {
-            zmqContext = Context.Create();
-            pub = zmqContext.CreateSocket(SocketType.PUB);
-            sub = zmqContext.CreateSocket(SocketType.SUB);
+            ctx = Context.Create();
+            pub = ctx.CreateSocket(SocketType.PUB);
+            sub = ctx.CreateSocket(SocketType.SUB);
         };
 
         Cleanup resources = () =>
         {
             sub.Dispose();
             pub.Dispose();
-            zmqContext.Dispose();
+            ctx.Dispose();
         };
     }
 
@@ -72,8 +72,8 @@
     {
         static using_threaded_req_rep()
         {
-            createSender = () => zmqContext.CreateSocket(SocketType.REQ);
-            createReceiver = () => zmqContext.CreateSocket(SocketType.REP);
+            createSender = () => ctx.CreateSocket(SocketType.REQ);
+            createReceiver = () => ctx.CreateSocket(SocketType.REP);
         }
     }
 
@@ -81,8 +81,8 @@
     {
         static using_threaded_pub_sub()
         {
-            createSender = () => zmqContext.CreateSocket(SocketType.PUB);
-            createReceiver = () => zmqContext.CreateSocket(SocketType.SUB);
+            createSender = () => ctx.CreateSocket(SocketType.PUB);
+            createReceiver = () => ctx.CreateSocket(SocketType.SUB);
         }
     }
 
@@ -95,7 +95,7 @@
 
         protected static Socket sender;
         protected static Socket receiver;
-        protected static Context zmqContext;
+        protected static Context ctx;
 
         protected static Action<Socket> senderInit;
         protected static Action<Socket> senderAction;
@@ -107,7 +107,7 @@
 
         Establish context = () =>
         {
-            zmqContext = Context.Create();
+            ctx = Context.Create();
             sender = createSender();
             receiver = createReceiver();
 
@@ -139,7 +139,7 @@
         {
             sender.Dispose();
             receiver.Dispose();
-            zmqContext.Dispose();
+            ctx.Dispose();
         };
 
         protected static void StartThreads()

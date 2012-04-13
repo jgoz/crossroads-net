@@ -116,9 +116,9 @@
     {
         static using_queue_device()
         {
-            createSender = () => zmqContext.CreateSocket(SocketType.REQ);
-            createReceiver = () => zmqContext.CreateSocket(SocketType.REP);
-            createDevice = () => new QueueDevice(zmqContext, FrontendAddr, BackendAddr, DeviceMode.Blocking);
+            createSender = () => ctx.CreateSocket(SocketType.REQ);
+            createReceiver = () => ctx.CreateSocket(SocketType.REP);
+            createDevice = () => new QueueDevice(ctx, FrontendAddr, BackendAddr, DeviceMode.Blocking);
         }
     }
 }

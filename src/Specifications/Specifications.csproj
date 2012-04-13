@@ -104,6 +104,7 @@
       <Link>Properties\ProductInfo.cs</Link>
     </Compile>
     <Compile Include="Behaviors.cs" />
+    <Compile Include="ContextSpecs\ContextOptions.cs" />
     <Compile Include="DeviceSpecs\Forwarder.cs" />
     <Compile Include="DeviceSpecs\Queue.cs" />
     <Compile Include="DeviceSpecs\SpecContext.cs" />

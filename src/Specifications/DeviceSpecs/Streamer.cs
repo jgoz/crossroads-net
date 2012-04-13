@@ -116,9 +116,9 @@
     {
         static using_streamer_device()
         {
-            createSender = () => zmqContext.CreateSocket(SocketType.PUSH);
-            createReceiver = () => zmqContext.CreateSocket(SocketType.PULL);
-            createDevice = () => new StreamerDevice(zmqContext, FrontendAddr, BackendAddr, DeviceMode.Blocking);
+            createSender = () => ctx.CreateSocket(SocketType.PUSH);
+            createReceiver = () => ctx.CreateSocket(SocketType.PULL);
+            createDevice = () => new StreamerDevice(ctx, FrontendAddr, BackendAddr, DeviceMode.Blocking);
         }
     }
 }

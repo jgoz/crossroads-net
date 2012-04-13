@@ -104,9 +104,9 @@
     {
         static using_forwarder_device()
         {
-            createSender = () => zmqContext.CreateSocket(SocketType.PUB);
-            createReceiver = () => zmqContext.CreateSocket(SocketType.SUB);
-            createDevice = () => new ForwarderDevice(zmqContext, FrontendAddr, BackendAddr, DeviceMode.Blocking);
+            createSender = () => ctx.CreateSocket(SocketType.PUB);
+            createReceiver = () => ctx.CreateSocket(SocketType.SUB);
+            createDevice = () => new ForwarderDevice(ctx, FrontendAddr, BackendAddr, DeviceMode.Blocking);
         }
     }
 }

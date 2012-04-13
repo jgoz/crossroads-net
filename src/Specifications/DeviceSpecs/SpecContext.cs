@@ -19,7 +19,7 @@
         protected static Socket sender;
         protected static Socket receiver;
         protected static TDevice device;
-        protected static Context zmqContext;
+        protected static Context ctx;
 
         protected static Action<TDevice> deviceInit;
         protected static Action<Socket> senderInit;
@@ -37,7 +37,7 @@
 
         Establish context = () =>
         {
-            zmqContext = Context.Create();
+            ctx = Context.Create();
             device = createDevice();
             sender = createSender();
             receiver = createReceiver();
@@ -116,9 +116,9 @@
                 device.Dispose();
             }
 
-            if (zmqContext != null)
+            if (ctx != null)
             {
-                zmqContext.Dispose();
+                ctx.Dispose();
             }
         };
 
