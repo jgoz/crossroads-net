@@ -1,2 +1,2 @@
-64-bit libzmq library:
- - libzmq.dll
+64-bit libxs library:
+ - libxs.dll
