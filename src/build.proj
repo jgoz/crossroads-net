@@ -79,8 +79,8 @@
     </FindLastDirectory>
 
     <ItemGroup Condition="'$(OperatingPlatform)' == 'Windows'">
-      <TestAssembly Condition="'$(Platform)' != 'Any CPU'" Include="$(SolutionDir)\**\bin\$(Platform)\$(Configuration)\*Tests.dll" />
-      <TestAssembly Condition="'$(Platform)' == 'Any CPU'" Include="$(SolutionDir)\**\bin\$(Configuration)\*Tests.dll" />
+      <TestAssembly Condition="'$(Platform)' != 'Any CPU'" Include="$(SolutionDir)\**\bin\$(Platform)\$(Configuration)\*Specs.dll" />
+      <TestAssembly Condition="'$(Platform)' == 'Any CPU'" Include="$(SolutionDir)\**\bin\$(Configuration)\*Specs.dll" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(OperatingPlatform)' == 'Windows'">

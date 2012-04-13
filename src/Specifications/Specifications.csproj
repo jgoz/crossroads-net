@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CrossroadsIO.Specifications</RootNamespace>
-    <AssemblyName>CrossroadsIO.Specifications</AssemblyName>
+    <AssemblyName>CrossroadsIO.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -53,7 +53,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x86\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <NoWarn>169</NoWarn>
+    <NoWarn>169;649</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <CodeAnalysisLogFile>bin\Debug\Specifications.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
@@ -68,7 +68,7 @@
     <OutputPath>bin\x86\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
-    <NoWarn>169</NoWarn>
+    <NoWarn>169;649</NoWarn>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <CodeAnalysisLogFile>bin\Release\Specifications.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
