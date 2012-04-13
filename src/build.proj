@@ -1,0 +1,124 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="4.0">
+  
+  <Import Project="$(SolutionDir)CustomTasks.targets" />
+
+  <PropertyGroup>
+    <SolutionDir Condition="'$(SolutionDir)' == ''">.</SolutionDir>
+    <LibDir Condition="'$(LibDir)' == ''">..\lib</LibDir>
+    <BuildDir>..\build</BuildDir>
+    <PackageDir>..\publish</PackageDir>
+    <NugetPackageDir>packages</NugetPackageDir>
+    <Platform Condition="'$(Platform)' == ''">x86</Platform>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <MSpecOptions Condition="'$(MSpecOptions)' == ''"></MSpecOptions>
+    <KeyFile>Shared\CrossroadsIO.snk</KeyFile>
+    <KeyFileProperty Condition="'$(SignAssembly)' == 'true'">KeyOriginatorFile=$(KeyFile)</KeyFileProperty>
+    <OperatingPlatform Condition="'$(OperatingPlatform)' == ''">Windows</OperatingPlatform>
+    <NetFramework Condition="'$(NetFramework)' == ''">NET</NetFramework>
+    <SolutionSuffix Condition="'$(OperatingPlatform)' == 'Unix'">.Mono</SolutionSuffix>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DebugType Condition="'$(Configuration)' == 'Debug'">full</DebugType>
+    <DebugType Condition="'$(Configuration)' != 'Debug'">pdbonly</DebugType>
+
+    <Optimize Condition="'$(Configuration)' == 'Debug'">false</Optimize>
+    <Optimize Condition="'$(Configuration)' != 'Debug'">true</Optimize>
+
+    <Constants Condition="'$(OperatingPlatform)' == 'Windows'"></Constants>
+    <Constants Condition="'$(OperatingPlatform)' == 'Unix'">UNIX;MONO</Constants>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <CleanFiles Include="$(BuildDir)" />
+    <CleanFiles Include="$(SolutionDir)\**\bin\$(Configuration)\**" />
+    <CleanFiles Include="$(SolutionDir)\**\bin\**\*.*" />
+    <CleanFiles Include="$(SolutionDir)\**\obj\$(Configuration)\**" />
+    <CleanFiles Include="$(SolutionDir)\**\obj\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <OutputFiles Include="$(SolutionDir)\**\bin\$(Configuration)\*.dll" />
+    <OutputFiles Include="$(SolutionDir)\**\bin\$(Configuration)\*.pdb" />
+    <OutputFiles Include="$(SolutionDir)\**\bin\$(Configuration)\*.xml" />
+    <OutputFiles Include="$(LibDir)\$(Platform)\*.dll" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <CrossroadsIOSources Include="CrossroadsIO\**\*.cs;Shared\*.cs" Exclude="CrossroadsIO\**\Platform.*.cs" />
+    <CrossroadsIOSources Include="CrossroadsIO\**\Platform.$(OperatingPlatform).cs" />
+    <CrossroadsIOSources Include="CrossroadsIO\**\Platform.$(NetFramework).cs" />
+      
+    <Resources Include="$(LibDir)\x64\libxs.dll">
+      <Platform>x64</Platform>
+    </Resources>
+    <Resources Include="$(LibDir)\x86\libxs.dll">
+      <Platform>x86</Platform>
+    </Resources>
+
+    <EmbeddedResources Include="@(Resources)">
+      <LogicalName>%(filename)%(extension).%(Platform)</LogicalName>
+    </EmbeddedResources>
+  </ItemGroup>
+
+  <Target Name="Clean">
+    <Delete Files="@(CleanFiles)" ContinueOnError="true" />
+  </Target>
+
+  <Target Name="Initialize" DependsOnTargets="Clean">
+    <MakeDir Directories="$(BuildDir)" />
+  </Target>
+  
+  <Target Name="Compile" DependsOnTargets="Initialize">
+    <MSBuild Projects="CrossroadsIO$(SolutionSuffix).sln" Targets="Build" Properties="Configuration=$(Configuration);Platform=$(Platform);$(KeyFileProperty);RestorePackages=true" />
+  </Target>
+
+  <Target Name="Test" DependsOnTargets="Compile">
+    <FindLastDirectory Path="$(NugetPackageDir)" Pattern="Machine.Specifications.*">
+      <Output TaskParameter="Dir" PropertyName="MSpecDir" />
+    </FindLastDirectory>
+
+    <ItemGroup Condition="'$(OperatingPlatform)' == 'Windows'">
+      <TestAssembly Condition="'$(Platform)' != 'Any CPU'" Include="$(SolutionDir)\**\bin\$(Platform)\$(Configuration)\*Tests.dll" />
+      <TestAssembly Condition="'$(Platform)' == 'Any CPU'" Include="$(SolutionDir)\**\bin\$(Configuration)\*Tests.dll" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(OperatingPlatform)' == 'Windows'">
+      <MSpecExe Condition="'$(MSpecExe)' == '' and '$(Platform)' == 'x64'">$(MSpecDir)\tools\mspec-clr4.exe</MSpecExe>
+      <MSpecExe Condition="'$(MSpecExe)' == '' and '$(Platform)' == 'x86'">$(MSpecDir)\tools\mspec-x86-clr4.exe</MSpecExe>
+    </PropertyGroup>
+
+    <Exec Condition="'$(OperatingPlatform)' == 'Windows'" Command="$(MSpecExe) $(MSpecOptions) %(TestAssembly.Identity)" />
+    <!--<Exec Condition="'$(OperatingPlatform)' == 'Unix'" Command="$(MSpecExe) $(MSpecOptions) %(TestAssembly.Identity)" />-->
+  </Target>
+  
+  <Target Name="Build" DependsOnTargets="Test">
+    <Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(BuildDir)" ContinueOnError="true" />
+  </Target>
+
+  <Target Name="Package">
+    <RemoveDir Directories="$(BuildDir)" />
+    <MakeDir Directories="$(BuildDir)" />
+
+    <Csc Sources="@(CrossroadsIOSources)"
+         DocumentationFile="$(BuildDir)\CrossroadsIO.xml"
+         OutputAssembly="$(BuildDir)\CrossroadsIO.dll"
+         Resources="@(EmbeddedResources)"
+         TargetType="library"
+         DebugType="$(DebugType)"
+         PdbFile="$(BuildDir)\CrossroadsIO.pdb"
+         Optimize="$(Optimize)"
+         KeyFile="$(KeyFile)"
+         DefineConstants="$(Constants)"
+      />
+
+    <ItemGroup>
+      <BuildOutput Include="$(BuildDir)\*.*;$(SolutionDir)\*.txt" />
+    </ItemGroup>
+
+    <RemoveDir Directories="$(PackageDir)" />
+    <MakeDir Directories="$(PackageDir)" />
+    <Copy SourceFiles="@(BuildOutput)" DestinationFolder="$(PackageDir)" ContinueOnError="false" />
+  </Target>
+
+</Project>
