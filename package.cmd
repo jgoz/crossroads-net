@@ -13,7 +13,7 @@ set /p VERSION=Enter version (e.g. 1.0):
 set /p BUILD=Enter a build (e.g. 11234): 
 set /p REVISION=Enter a revision (e.g. 7): 
 set /p MATURITY=Enter maturity (e.g. alpha1, rc1, or blank for Release): 
-set /p LIBXSVER=Enter libxs version (e.g. 3.1.1): 
+set /p LIBXSVER=Enter libxs version (e.g. 1.0.0): 
 set /p LIBXSCOMMIT=Enter libxs commit (e.g. 21571cf, blank if N/A): 
 
 if not defined MATURITY (
