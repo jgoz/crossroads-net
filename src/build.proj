@@ -25,7 +25,7 @@
     <Optimize Condition="'$(Configuration)' == 'Debug'">false</Optimize>
     <Optimize Condition="'$(Configuration)' != 'Debug'">true</Optimize>
 
-    <Constants Condition="'$(OperatingPlatform)' == 'Windows'"></Constants>
+    <Constants Condition="'$(OperatingPlatform)' == 'Windows'">WINDOWS;DOTNET</Constants>
     <Constants Condition="'$(OperatingPlatform)' == 'Unix'">UNIX;MONO</Constants>
   </PropertyGroup>
   
@@ -45,9 +45,9 @@
   </ItemGroup>
   
   <ItemGroup>
-    <CrossroadsIOSources Include="CrossroadsIO\**\*.cs;Shared\*.cs" Exclude="CrossroadsIO\**\Platform.*.cs" />
-    <CrossroadsIOSources Include="CrossroadsIO\**\Platform.$(OperatingPlatform).cs" />
-    <CrossroadsIOSources Include="CrossroadsIO\**\Platform.$(NetFramework).cs" />
+    <CrossroadsIOSources Include="Core\**\*.cs;Shared\*.cs" Exclude="Core\**\Platform.*.cs" />
+    <CrossroadsIOSources Include="Core\**\Platform.$(OperatingPlatform).cs" />
+    <CrossroadsIOSources Include="Core\**\Platform.$(NetFramework).cs" />
       
     <Resources Include="$(LibDir)\x64\libxs.dll">
       <Platform>x64</Platform>
@@ -96,7 +96,7 @@
     <Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(BuildDir)" ContinueOnError="true" />
   </Target>
 
-  <Target Name="Package">
+  <Target Name="Package" DependsOnTargets="Clean">
     <RemoveDir Directories="$(BuildDir)" />
     <MakeDir Directories="$(BuildDir)" />
 
