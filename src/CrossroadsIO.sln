@@ -1,6 +1,33 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{06D94690-CBA9-41D0-9642-D2CBAF1C63AA}"
+	ProjectSection(SolutionItems) = preProject
+		..\AUTHORS = ..\AUTHORS
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{84FD3DEC-A782-4C7D-8E3B-E5A85278E811}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E2D37B39-F169-4776-B907-5942A5B7FB7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Performance", "Performance", "{52843585-9F78-46AB-87D8-D3C616D73D66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{F0A54345-B67E-4E9D-B504-2A004B024EA2}"
+	ProjectSection(SolutionItems) = preProject
+		Indentation.vssettings = Indentation.vssettings
+		SolutionEvents_Opened.macro = SolutionEvents_Opened.macro
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{E858B699-3814-4735-B227-10CBD642A63F}"
+	ProjectSection(SolutionItems) = preProject
+		..\build.cmd = ..\build.cmd
+		build.proj = build.proj
+		CustomTasks.targets = CustomTasks.targets
+		..\package.cmd = ..\package.cmd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
