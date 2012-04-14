@@ -162,7 +162,7 @@ When reporting issues, please include the following information if possible:
 Pull requests and patches are always appreciated! To speed up the merge process, please follow the guidelines below when making a pull request:
 
 * Create a new branch in your fork for the changes you intend to make. Working directly in master can often lead to unintended additions to the pull request later on.
-* When appropriate, add to the AcceptanceTests project to cover any new functionality or defect fixes.
+* When appropriate, add to the Specifications project to cover any new functionality or defect fixes.
 * Ensure all previous tests continue to pass (with exceptions for PGM tests)
 * Follow the code style used in the rest of the project. ReSharper and StyleCop configurations have been included in the source tree.
 
