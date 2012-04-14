@@ -69,8 +69,8 @@
     <Compile Include="Interop\DisposableIntPtr.cs" />
     <Compile Include="Interop\ErrorDetails.cs" />
     <Compile Include="Interop\ErrorProxy.cs" />
-    <Compile Include="Interop\LibZmq.Mono.cs" />
-    <Compile Include="Interop\LibZmq.NET.cs" />
+    <Compile Include="Interop\LibXs.Mono.cs" />
+    <Compile Include="Interop\LibXs.NET.cs" />
     <Compile Include="Interop\ManifestResource.cs" />
     <Compile Include="Interop\Platform.Mono.cs" />
     <Compile Include="Interop\Platform.NET.cs" />
