@@ -4,6 +4,7 @@ obj/
 build/
 publish/
 perf/
+*.tar.gz
 
 # Native libraries
 lib

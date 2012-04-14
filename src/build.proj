@@ -11,11 +11,12 @@
     <Platform Condition="'$(Platform)' == ''">x86</Platform>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <MSpecOptions Condition="'$(MSpecOptions)' == ''"></MSpecOptions>
-    <KeyFile>Shared\CrossroadsIO.snk</KeyFile>
-    <KeyFileProperty Condition="'$(SignAssembly)' == 'true'">KeyOriginatorFile=$(KeyFile)</KeyFileProperty>
     <OperatingPlatform Condition="'$(OperatingPlatform)' == ''">Windows</OperatingPlatform>
     <NetFramework Condition="'$(NetFramework)' == ''">NET</NetFramework>
     <SolutionSuffix Condition="'$(OperatingPlatform)' == 'Unix'">.Mono</SolutionSuffix>
+    <KeyFile Condition="'$(OperatingPlatform)' == 'Unix'">..\Shared\CrossroadsIO.snk</KeyFile>
+    <KeyFile Condition="'$(OperatingPlatform)' != 'Unix'">Shared\CrossroadsIO.snk</KeyFile>
+    <KeyFileProperty Condition="'$(SignAssembly)' == 'true'">KeyOriginatorFile=$(KeyFile)</KeyFileProperty>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -74,7 +75,7 @@
   </Target>
 
   <Target Name="Test" DependsOnTargets="Compile">
-    <FindLastDirectory Path="$(NugetPackageDir)" Pattern="Machine.Specifications.*">
+    <FindLastDirectory Path="$(NugetPackageDir)" Pattern="Machine.Specifications.*" Condition="'$(OperatingPlatform)' == 'Windows'">
       <Output TaskParameter="Dir" PropertyName="MSpecDir" />
     </FindLastDirectory>
 
