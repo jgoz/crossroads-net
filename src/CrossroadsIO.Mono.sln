@@ -1,0 +1,116 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{06D94690-CBA9-41D0-9642-D2CBAF1C63AA}"
+	ProjectSection(SolutionItems) = preProject
+		..\AUTHORS = ..\AUTHORS
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{84FD3DEC-A782-4C7D-8E3B-E5A85278E811}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Mono", "Core\Core.Mono.csproj", "{684260C8-8EA4-4BBB-AA4C-F4D5C488C1DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E2D37B39-F169-4776-B907-5942A5B7FB7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmokeTests.Mono", "SmokeTests\SmokeTests.Mono.csproj", "{FACEAF2A-3C3A-4281-8B12-7F898315A194}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Specifications.Mono", "Specifications\Specifications.Mono.csproj", "{6F46018E-2BBC-4987-AE25-8E790E65005B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Performance", "Performance", "{52843585-9F78-46AB-87D8-D3C616D73D66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perf.LatLocal.Mono", "Perf.LatLocal\Perf.LatLocal.Mono.csproj", "{5576871C-DB3F-4B89-A549-1F1EA06891DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perf.LatRemote.Mono", "Perf.LatRemote\Perf.LatRemote.Mono.csproj", "{B3178BE6-E51D-4060-855A-A163F98BF6B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perf.ThrLocal.Mono", "Perf.ThrLocal\Perf.ThrLocal.Mono.csproj", "{F5537E25-5BE0-48B9-9EED-13E8F044EDF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perf.ThrRemote.Mono", "Perf.ThrRemote\Perf.ThrRemote.Mono.csproj", "{8FAE7F57-03DE-4055-AB25-683335E390BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{F0A54345-B67E-4E9D-B504-2A004B024EA2}"
+	ProjectSection(SolutionItems) = preProject
+		Indentation.vssettings = Indentation.vssettings
+		SolutionEvents_Opened.macro = SolutionEvents_Opened.macro
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{E858B699-3814-4735-B227-10CBD642A63F}"
+	ProjectSection(SolutionItems) = preProject
+		..\build.cmd = ..\build.cmd
+		build.proj = build.proj
+		CustomTasks.targets = CustomTasks.targets
+		..\package.cmd = ..\package.cmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F4F34343-AA86-439A-BB6C-DC139231CF9E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\crossroads-net.nuspec = .nuget\crossroads-net.nuspec
+		.nuget\libxs.nuspec = .nuget\libxs.nuspec
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5576871C-DB3F-4B89-A549-1F1EA06891DD}.Debug|x86.ActiveCfg = Debug|x86
+		{5576871C-DB3F-4B89-A549-1F1EA06891DD}.Debug|x86.Build.0 = Debug|x86
+		{5576871C-DB3F-4B89-A549-1F1EA06891DD}.Release|x86.ActiveCfg = Release|x86
+		{5576871C-DB3F-4B89-A549-1F1EA06891DD}.Release|x86.Build.0 = Release|x86
+		{684260C8-8EA4-4BBB-AA4C-F4D5C488C1DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{684260C8-8EA4-4BBB-AA4C-F4D5C488C1DA}.Debug|x86.Build.0 = Debug|Any CPU
+		{684260C8-8EA4-4BBB-AA4C-F4D5C488C1DA}.Release|x86.ActiveCfg = Release|Any CPU
+		{684260C8-8EA4-4BBB-AA4C-F4D5C488C1DA}.Release|x86.Build.0 = Release|Any CPU
+		{6F46018E-2BBC-4987-AE25-8E790E65005B}.Debug|x86.ActiveCfg = Debug|x86
+		{6F46018E-2BBC-4987-AE25-8E790E65005B}.Debug|x86.Build.0 = Debug|x86
+		{6F46018E-2BBC-4987-AE25-8E790E65005B}.Release|x86.ActiveCfg = Release|x86
+		{6F46018E-2BBC-4987-AE25-8E790E65005B}.Release|x86.Build.0 = Release|x86
+		{8FAE7F57-03DE-4055-AB25-683335E390BF}.Debug|x86.ActiveCfg = Debug|x86
+		{8FAE7F57-03DE-4055-AB25-683335E390BF}.Debug|x86.Build.0 = Debug|x86
+		{8FAE7F57-03DE-4055-AB25-683335E390BF}.Release|x86.ActiveCfg = Release|x86
+		{8FAE7F57-03DE-4055-AB25-683335E390BF}.Release|x86.Build.0 = Release|x86
+		{B3178BE6-E51D-4060-855A-A163F98BF6B9}.Debug|x86.ActiveCfg = Debug|x86
+		{B3178BE6-E51D-4060-855A-A163F98BF6B9}.Debug|x86.Build.0 = Debug|x86
+		{B3178BE6-E51D-4060-855A-A163F98BF6B9}.Release|x86.ActiveCfg = Release|x86
+		{B3178BE6-E51D-4060-855A-A163F98BF6B9}.Release|x86.Build.0 = Release|x86
+		{F5537E25-5BE0-48B9-9EED-13E8F044EDF1}.Debug|x86.ActiveCfg = Debug|x86
+		{F5537E25-5BE0-48B9-9EED-13E8F044EDF1}.Debug|x86.Build.0 = Debug|x86
+		{F5537E25-5BE0-48B9-9EED-13E8F044EDF1}.Release|x86.ActiveCfg = Release|x86
+		{F5537E25-5BE0-48B9-9EED-13E8F044EDF1}.Release|x86.Build.0 = Release|x86
+		{FACEAF2A-3C3A-4281-8B12-7F898315A194}.Debug|x86.ActiveCfg = Debug|x86
+		{FACEAF2A-3C3A-4281-8B12-7F898315A194}.Debug|x86.Build.0 = Debug|x86
+		{FACEAF2A-3C3A-4281-8B12-7F898315A194}.Release|x86.ActiveCfg = Release|x86
+		{FACEAF2A-3C3A-4281-8B12-7F898315A194}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{684260C8-8EA4-4BBB-AA4C-F4D5C488C1DA} = {84FD3DEC-A782-4C7D-8E3B-E5A85278E811}
+		{FACEAF2A-3C3A-4281-8B12-7F898315A194} = {E2D37B39-F169-4776-B907-5942A5B7FB7B}
+		{6F46018E-2BBC-4987-AE25-8E790E65005B} = {E2D37B39-F169-4776-B907-5942A5B7FB7B}
+		{5576871C-DB3F-4B89-A549-1F1EA06891DD} = {52843585-9F78-46AB-87D8-D3C616D73D66}
+		{B3178BE6-E51D-4060-855A-A163F98BF6B9} = {52843585-9F78-46AB-87D8-D3C616D73D66}
+		{F5537E25-5BE0-48B9-9EED-13E8F044EDF1} = {52843585-9F78-46AB-87D8-D3C616D73D66}
+		{8FAE7F57-03DE-4055-AB25-683335E390BF} = {52843585-9F78-46AB-87D8-D3C616D73D66}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = SmokeTests\SmokeTests.Mono.csproj
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = None
+		$1.ResourceNamePolicy = FileFormatDefault
+		$0.StandardHeader = $2
+		$2.Text = 
+		$2.IncludeInNewFiles = True
+		$0.VersionControlPolicy = $3
+		$3.inheritsSet = Mono
+		$0.ChangeLogPolicy = $4
+		$4.UpdateMode = None
+		$4.MessageStyle = $5
+		$5.LineAlign = 0
+		$4.inheritsSet = Mono
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
