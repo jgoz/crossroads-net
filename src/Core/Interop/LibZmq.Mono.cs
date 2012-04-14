@@ -115,7 +115,7 @@ namespace CrossroadsIO.Interop
         public static extern void xs_version(IntPtr major, IntPtr minor, IntPtr patch);
 
         [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int xs_poll([In, Out] PollItem[] items, int numItems, long timeout);
+        public static extern int xs_poll([In, Out] PollItem[] items, int numItems, int timeout);
     }
 }
 

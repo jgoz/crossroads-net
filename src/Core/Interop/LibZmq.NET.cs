@@ -178,7 +178,7 @@ namespace CrossroadsIO.Interop
         public static XsVersionProc xs_version;
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate int XsPollProc([In] [Out] PollItem[] items, int numItems, long timeoutMsec);
+        public delegate int XsPollProc([In] [Out] PollItem[] items, int numItems, int timeoutMsec);
         public static XsPollProc xs_poll;
     }
     // ReSharper restore InconsistentNaming
