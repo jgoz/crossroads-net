@@ -104,7 +104,7 @@ crossroads-net depends on `libxs.dll`, which will be retrieved automatically via
 
 If you want to use a custom build of `libxs.dll`, perform the following steps:
 
-1. Delete or rename the `src/CrossroadsIO/packages.config` file. This will prevent the NuGet package from being retrieved.
+1. Delete or rename the `src/Core/packages.config` file. This will prevent the NuGet package from being retrieved.
 2. Remove any folders matching `src/packages/libxs-*` that may have been downloaded previously.
 3. Copy the 32-bit and 64-bit (if applicable) build of `libxs.dll` to `lib/x86` and `lib/x64`, respectively.
 
