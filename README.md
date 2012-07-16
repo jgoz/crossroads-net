@@ -30,7 +30,7 @@ namespace ServerExample
             using (Context context = Context.Create())
             using (Socket server = context.CreateSocket(SocketType.REP))
             {
-                socket.Bind("tcp://*:5555");
+                server.Bind("tcp://*:5555");
                 
                 while (true)
                 {
